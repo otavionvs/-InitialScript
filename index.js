@@ -4,23 +4,24 @@ let ListClassMates = [
     { name: 'Camilly de Souza Pessotti', userName: 'camillyPessotti' },
     { name: 'Camilly Vitoria da Rocha Goltz', userName: 'VitoriaCamilly' },
     { name: 'Diego Planinscheck', userName: 'frst157' },
-    { name: 'Eduarda Bolgenhagen De Campos', userName: 'eduardabolgenhagen'},
-    { name: 'Ester Girelli', userName: 'Esterzinha12'},
-    { name: 'Felipe Mielke Vieira', userName: 'FelipeMielkeVieira'},
-    { name: 'Gustavo Rebelatto Zapella', userName: 'rebelattogustavo'},
-    { name: 'Henrique Cole Fernandes', userName: 'HenriqueCole'},
-    { name: 'João Henrique Meirles da Silva', userName: 'nihilth'},
-    { name: 'Kenzo Hideaky Ferreira Sato', userName: 'Kenzohfs'},
-    { name: 'Leonardo Heitor Poglia', userName: 'Leonardo Heitor Poglia'},
-    { name: 'Leonardo Giuseppe de Souza Rafaelli', userName: 'LeonardoRafaelli'},
-    { name: 'Matheus Franzener Hohmann', userName: 'MatheusFranzener'},
-    { name: 'Otavio Matheus Neves', userName: 'otavionvs'},
-    { name: 'Otavio Augusto dos Santos', userName: 'SantOtavio'},
-    { name: 'Thiago Marins Braga', userName: 'ThiagoBrag'},
-    { name: 'Vinícius Bonatti Benner', userName: 'viniciusz1'},
-    { name: 'Vytor Augusto Rosa', userName: 'K43RU'},
-    
+    { name: 'Eduarda Bolgenhagen De Campos', userName: 'eduardabolgenhagen' },
+    { name: 'Ester Girelli', userName: 'Esterzinha12' },
+    { name: 'Felipe Mielke Vieira', userName: 'FelipeMielkeVieira' },
+    { name: 'Gustavo Rebelatto Zapella', userName: 'rebelattogustavo' },
+    { name: 'Henrique Cole Fernandes', userName: 'HenriqueCole' },
+    { name: 'João Henrique Meirles da Silva', userName: 'nihilth' },
+    { name: 'Kenzo Hideaky Ferreira Sato', userName: 'Kenzohfs' },
+    { name: 'Leonardo Heitor Poglia', userName: 'Leonardo Heitor Poglia' },
+    { name: 'Leonardo Giuseppe de Souza Rafaelli', userName: 'LeonardoRafaelli' },
+    { name: 'Matheus Franzener Hohmann', userName: 'MatheusFranzener' },
+    { name: 'Otavio Matheus Neves', userName: 'otavionvs' },
+    { name: 'Otavio Augusto dos Santos', userName: 'SantOtavio' },
+    { name: 'Thiago Marins Braga', userName: 'ThiagoBrag' },
+    { name: 'Vinícius Bonatti Benner', userName: 'viniciusz1' },
+    { name: 'Vytor Augusto Rosa', userName: 'K43RU' },
+
 ];
+
 function CreateTable() {
     const Tablebody = document.querySelector('table');
     if (Tablebody) {
@@ -31,23 +32,23 @@ function CreateTable() {
     const row = document.createElement('tr');
     const columnName = document.createElement('td');
     const columnuserName = document.createElement('td');
-    
+
 
     columnName.innerText = 'Nomes';
     columnuserName.innerText = 'UserNames';
-    
+
 
     row.appendChild(columnName);
     row.appendChild(columnuserName);
     table.appendChild(row);
 
-    ListClassMates.forEach(function (element) {
+    ListClassMates.forEach(function(element) {
         console.log('element:', element);
         const rowTable = ClassMatesTable(
             element.name,
             element.userName
-            );
-    
+        );
+
         table.appendChild(rowTable);
     })
 
@@ -62,12 +63,12 @@ function ClassMatesTable(name, userName) {
     let Botao = document.createElement('button');
 
     Botao.innerText = "GitHub";
-    
 
-    function irGit (){
-        location.href = './userPage/index.html?' + userName ;
+
+    function irGit() {
+        location.href = './userPage/index.html?' + userName;
     }
-    
+
     Botao.onclick = irGit;
 
     columnName.innerText = name;
@@ -89,12 +90,12 @@ console.log(ListClassMates);
 
 function getUserGithub(userName) {
     fetch('https://api.github.com/users/' + userName)
-        .then(function (resultado) {
-            resultado.json().then(function (data) {
+        .then(function(resultado) {
+            resultado.json().then(function(data) {
                 console.log('User Data:', data);
                 showUserGithub(data);
             });
-        }).catch(function (erro) {
+        }).catch(function(erro) {
             console.log('erro:', erro);
         });
 }
@@ -108,11 +109,11 @@ function showUserGithub(user) {
 
 function getUserReposGithub(userName) {
     fetch('https://api.github.com/users/' + userName + '/repos')
-        .then(function (resultado) {
-            resultado.json().then(function (data) {
+        .then(function(resultado) {
+            resultado.json().then(function(data) {
                 console.log('Repositories Data:', data);
             });
-        }).catch(function (erro) {
+        }).catch(function(erro) {
             console.log('erro:', erro);
         });
 }
