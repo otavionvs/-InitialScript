@@ -21,6 +21,17 @@ let ListClassMates = [
     { name: 'Vytor Augusto Rosa', userName: 'K43RU' },
 
 ];
+let ProcurarNomes = document.createElement('input');
+document.body.appendChild(ProcurarNomes);
+let botaoProcurarNomes = document.createElement('button');
+document.body.appendChild(botaoProcurarNomes);
+// botaoProcurarNomes.onclick = clickButtonFindPerson;
+botaoProcurarNomes.innerText = "Procurar Pessoa";
+
+let botaoCadastro = document.createElement('button');
+document.body.appendChild(botaoCadastro);
+botaoCadastro.onclick = clickButtonRegisteryPerson;
+botaoCadastro.innerText = "Cadastrar Pessoa";
 
 function CreateTable() {
     const Tablebody = document.querySelector('table');
@@ -47,8 +58,7 @@ function CreateTable() {
         const rowTable = ClassMatesTable(
             element.name,
             element.userName,
-            name: name,
-            surname: surname
+
         );
 
         table.appendChild(rowTable);
@@ -90,11 +100,7 @@ CreateTable();
 console.log(ListClassMates);
 
 
-let botaoCadastro = document.createElement('button');
-let listPerson = [];
-document.body.appendChild(botaoCadastro);
-botaoCadastro.onclick = clickButtonRegisteryPerson;
-botaoCadastro.innerText = "Cadastrar Pessoa";
+
 
 function clickButtonRegisteryPerson() {
     const modal = createModal();
@@ -181,16 +187,16 @@ function getContentRegesteryPersonModal(removeModal) {
 
     function registery() {
         const name = inputNome.value;
-        const surname = inputSobrenome.value;
+        const userName = inputSobrenome.value;
 
         if (!name || name == '') {
             return;
         }
-        if (!surname || surname == '') {
+        if (!userName || userName == '') {
             return;
         }
 
-        registeryPerson(name, surname);
+        registeryPerson(name, userName);
         removeModal();
     }
     buttonRegistery.onclick = registery;
@@ -209,63 +215,30 @@ function getContentRegesteryPersonModal(removeModal) {
     }
 }
 
-function registeryPerson(name, surname) {
+function registeryPerson(name, userName) {
     let person = {
         name: name,
-        surname: surname,
-        birthdate: birthdate
+        userName: userName
     }
 
-    listPerson.push(person);
-    showPersonTable();
+    ListClassMates.push(person);
+    CreateTable();
 }
 
-function showPersonTable() {
-    const actualTable = document.querySelector('table');
-    if (actualTable) {
-        actualTable.remove();
+function clickButtonRegisteryPerson() {
+
+}
+// JavaScript code
+/* function search_animal() {
+let input = document.getElementById('searchbar').value
+input = input.toLowerCase();
+let x = document.getElementsByClassName('animals');
+
+for (i = 0; i < x.length; i++) {
+    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+        x[i].style.display = "none";
+    } else {
+        x[i].style.display = "list-item";
     }
-
-    const table = document.createElement('table');
-    const row = document.createElement('tr');
-    const columnName = document.createElement('th');
-    const columnSurname = document.createElement('th');
-    const columnBirthDate = document.createElement('th');
-
-    columnName.innerText = 'Nome';
-    columnSurname.innerText = 'Sobrenome';
-    columnBirthDate.innerText = 'Data Nascimento';
-
-    row.appendChild(columnName);
-    row.appendChild(columnSurname);
-    row.appendChild(columnBirthDate);
-    table.appendChild(row);
-
-    listPerson.forEach(function(element) {
-        console.log('element:', element);
-        const rowTable = getPersonTableRow(
-            element.name,
-            element.surname,
-            element.birthdate);
-
-        table.appendChild(rowTable);
-    })
-
-    document.body.appendChild(table);
 }
-
-function getPersonTableRow(name, surname, birthdate) {
-    const row = document.createElement('tr');
-    const columnName = document.createElement('td');
-    const columnSurname = document.createElement('td');
-    const columnBirthDate = document.createElement('td');
-
-    columnName.innerText = name;
-    columnSurname.innerText = surname;
-    columnBirthDate.innerText = birthdate;
-
-    row.appendChild(columnName);
-    row.appendChild(columnSurname);
-    row.appendChild(columnBirthDate);
-    return row;
-}
+} */
