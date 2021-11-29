@@ -1,8 +1,27 @@
+body{
+    background-color: cadetblue;
+}
+
 table,
 tr,
 th,
 td {
     border: black 1px solid;
+    background-color: cornsilk;
+    
+}
+
+
+.divtable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divbotoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 #background-modal {

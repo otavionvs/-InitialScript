@@ -21,15 +21,19 @@ let ListClassMates = [
     { name: 'Vytor Augusto Rosa', userName: 'K43RU' },
 
 ];
+let divbotoes = document.createElement('div');
+document.body.appendChild(divbotoes);
+divbotoes.className = "divbotoes";
+
 let ProcurarNomes = document.createElement('input');
-document.body.appendChild(ProcurarNomes);
+divbotoes.appendChild(ProcurarNomes);
 let botaoProcurarNomes = document.createElement('button');
-document.body.appendChild(botaoProcurarNomes);
+divbotoes.appendChild(botaoProcurarNomes);
 // botaoProcurarNomes.onclick = clickButtonFindPerson;
 botaoProcurarNomes.innerText = "Procurar Pessoa";
 
 let botaoCadastro = document.createElement('button');
-document.body.appendChild(botaoCadastro);
+divbotoes.appendChild(botaoCadastro);
 botaoCadastro.onclick = clickButtonRegisteryPerson;
 botaoCadastro.innerText = "Cadastrar Pessoa";
 
@@ -39,11 +43,13 @@ function CreateTable() {
         Tablebody.remove();
     }
 
+    const divtable = document.createElement('div');
     const table = document.createElement('table');
     const row = document.createElement('tr');
     const columnName = document.createElement('td');
     const columnuserName = document.createElement('td');
 
+    divtable.className = "divtable";
 
     columnName.innerText = 'Nomes';
     columnuserName.innerText = 'UserNames';
@@ -64,7 +70,8 @@ function CreateTable() {
         table.appendChild(rowTable);
     })
 
-    document.body.appendChild(table);
+    document.body.appendChild(divtable);
+    divtable.appendChild(table);
 }
 
 function ClassMatesTable(name, userName) {
@@ -241,4 +248,12 @@ for (i = 0; i < x.length; i++) {
         x[i].style.display = "list-item";
     }
 }
+
+onkeyup
 } */
+
+function Filtro(){
+    let input = Element.querySelector("input");
+    
+}
+
